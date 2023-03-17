@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: rover-api
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: rover-api
   replicas: 2
   template:
     metadata:
       labels:
-        app: myapp
+        app: rover-api
     spec:
       containers:
-        - name: myapp
-          image: nanajanashia/argocd-app:1.2
+        - name: rover-api
+          image: ateixivi14/rover-api:latest
           ports:
             - containerPort: 8080
