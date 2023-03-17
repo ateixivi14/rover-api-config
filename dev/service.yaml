@@ -1,19 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: rover-api
+  name: rover-api-service
 spec:
   selector:
-    matchLabels:
-      app: rover-api
-  replicas: 2
-  template:
-    metadata:
-      labels:
-        app: rover-api
-    spec:
-      containers:
-        - name: rover-api
-          image: ateixivi14/rover-api:latest
-          ports:
-            - containerPort: 8080
+    app: rover-api
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
